@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Áruló Felderítés Rendszer</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f0f2f5;
+    }
+    header {
+      background: #34495e;
+      color: #fff;
+      padding: 1em;
+      text-align: center;
+    }
+    main {
+      padding: 2em;
+      max-width: 1000px;
+      margin: auto;
+    }
+    section {
+      background: #fff;
+      margin-bottom: 2em;
+      padding: 1.5em;
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    h2 {
+      color: #2c3e50;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 1em;
+    }
+    th, td {
+      text-align: left;
+      padding: 0.75em;
+      border-bottom: 1px solid #ddd;
+    }
+    th {
+      background: #ecf0f1;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Áruló Felderítés Rendszer</h1>
+    <p>SQL-alapú nyomozati adatbázis lekérdezésekkel</p>
+  </header>
+  <main>
+    <section>
+      <h2>Top Gyanúsítottak (gyanusagi_fok alapján)</h2>
+      <table>
+        <tr><th>Név</th><th>Foglalkozás</th><th>Szerep</th><th>Gyanúsági fok</th></tr>
+        <tr><td>Balogh Márton</td><td>sebész</td><td>orvosi konzultáns</td><td>9</td></tr>
+        <tr><td>Szabó Gábor</td><td>üzletember</td><td>pénzügyi felelős</td><td>8</td></tr>
+        <tr><td>Horváth Erika</td><td>újságíró</td><td>kommunikációs vezető</td><td>7</td></tr>
+        <tr><td>Lakatos Beatrix</td><td>könyvelő</td><td>pénzügyi ellenőr</td><td>6</td></tr>
+        <tr><td>Tóth Lajos</td><td>programozó</td><td>tech szakértő</td><td>6</td></tr>
+      </table>
+    </section>
+
+    <section>
+      <h2>Hamis állítások (ellenorzesi_eredmeny = 'hamis')</h2>
+      <table>
+        <tr><th>Név</th><th>Állítás</th><th>Hitelesség</th><th>Eredmény</th></tr>
+        <tr><td>Kovács Péter</td><td>Soha nem voltam a titkos ülésen, aznap Szegeden dolgoztam.</td><td>4</td><td>hamis</td></tr>
+      </table>
+    </section>
+
+    <section>
+      <h2>Legkevésbé megbízható kikérdezettek</h2>
+      <table>
+        <tr><th>Név</th><th>Átlagos megbízhatóság</th><th>Kikérdezések száma</th></tr>
+        <tr><td>Szabó Gábor</td><td>3.0</td><td>1</td></tr>
+        <tr><td>Balogh Márton</td><td>4.0</td><td>1</td></tr>
+      </table>
+    </section>
+
+    <section>
+      <h2>Kapcsolódó bizonyítékok</h2>
+      <table>
+        <tr><th>Név</th><th>Bizonyíték</th><th>Típus</th><th>Relevancia</th></tr>
+        <tr><td>Szabó Gábor</td><td>Bankszámlakivonatok idegen tranzakciókról</td><td>dokumentum</td><td>9</td></tr>
+        <tr><td>Horváth Erika</td><td>Fényképek érzékeny dokumentumokról</td><td>fizikai</td><td>8</td></tr>
+        <tr><td>Balogh Márton</td><td>Titkosított üzenetek ismeretlen számokról</td><td>digitális</td><td>7</td></tr>
+        <tr><td>Lakatos Beatrix</td><td>Módosított pénzügyi kimutatások eredeti példányai</td><td>dokumentum</td><td>6</td></tr>
+        <tr><td>N/A</td><td>Idegen ujjlenyomatok a bizalmas aktákon</td><td>fizikai</td><td>5</td></tr>
+      </table>
+    </section>
+
+    <section>
+      <h2>Leggyakrabban gyanúsított személyek</h2>
+      <table>
+        <tr><th>Gyanúsított</th><th>Gyanúsítások száma</th><th>Gyanúsítók</th></tr>
+        <tr><td>Balogh Márton</td><td>1</td><td>Szalai Ildikó</td></tr>
+        <tr><td>Horváth Erika</td><td>1</td><td>Keresztes Antal</td></tr>
+      </table>
+    </section>
+
+    <section>
+      <h2>Összesített gyanúsági pontszám</h2>
+      <table>
+        <tr><th>Név</th><th>Alapfok</th><th>Átlagos megbízhatóság</th><th>Hamis állítások</th><th>Bizonyítékok száma</th><th>Összesített pont</th></tr>
+        <tr><td>Balogh Márton</td><td>9</td><td>4.0</td><td>0</td><td>1</td><td>26.5</td></tr>
+        <tr><td>Szabó Gábor</td><td>8</td><td>3.0</td><td>1</td><td>1</td><td>30.5</td></tr>
+        <tr><td>Horváth Erika</td><td>7</td><td>5.0</td><td>0</td><td>1</td><td>21.5</td></tr>
+      </table>
+    </section>
+  </main>
+</body>
+</html>
